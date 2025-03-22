@@ -1,14 +1,25 @@
-name: First ever action 
+name: First ever action  # Unique name
 
-on: push
+on: push  # trigger
 
-jobs:
-    first_job:
-        runs-on: ubuntu-latest
+jobs:  # important part of the action
+    first_job:   #name of the job
+        runs-on: ubuntu-latest # github managed runner
         steps:
-        - run: echo "This is the first action" 
-        - run: ls
-        - run: uptime
-        - run: hostname
-        - run: cat /etc/hosts
+        - name: checkout repo
+          uses: actions/checkout@v4   #this is pulled from marketplace to help authenticate with the repo and read all the info
 
+        - name: just a print statement
+          run: echo "This is the first action"
+
+        - name: To list the hidden and non-hidden files
+          run: ls -a
+         
+        - name: To check the uptime of github runner ubuntu
+          run: uptime
+
+        - name:  To check the hostname of github runner ubuntu
+          run: hostname
+
+        - name:  To check the hosts file of github runner ubuntu 
+          run: cat /etc/hosts
