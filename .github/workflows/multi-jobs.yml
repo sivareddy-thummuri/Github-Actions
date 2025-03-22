@@ -1,0 +1,53 @@
+name: Let's do the multiple builds
+
+on: push
+
+jobs:
+    build_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Read Repo
+              uses: actions/checkout@v4
+
+            - name: Installing Cowsay
+              run: |
+               sudo apt-get update
+               sudo apt-get install cowsay -y
+               cowsay -f dragon "Run for cover, I am a DRAGON...RAWR" >> dragon.txt
+
+            - name: Uploading Artifact
+              uses: actions/upload-artifact@v4
+              with:
+                name: Dragon-file
+                path: dragon.txt
+    
+    test_job:
+        needs: build_job
+        runs-on: ubuntu-latest
+        steps:
+            - name: Downloading Artifact
+              uses: actions/download-artifact@v4
+              with:
+                name: Dragon-file
+
+            - name: Test the file
+              run: grep -i "dragon" dragon.txt
+    
+    deploy_job:
+        needs: test_job
+        runs-on: ubuntu-latest
+        steps:
+            - name: Downloading Artifact
+              uses: actions/download-artifact@v4
+              with:
+                name: Dragon-file
+            
+            - name: Read the file
+              run: cat dragon.txt
+
+            - name: deploying application
+              run: echo deploying....
+
+
+
+
