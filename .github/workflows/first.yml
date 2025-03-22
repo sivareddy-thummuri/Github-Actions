@@ -9,4 +9,6 @@ jobs:
         - run: echo "This is the first action" 
         - run: ls
         - run: uptime
+        - run: hostname
+        - run: cat /etc/hosts
 
