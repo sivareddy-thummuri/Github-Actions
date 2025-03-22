@@ -1,0 +1,10 @@
+name: Generate ASCII
+
+on: push
+
+jobs:
+  ascii_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: repo checkout
+        uses: actions/checkout@v4
