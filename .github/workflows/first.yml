@@ -1,0 +1,12 @@
+name: First ever action
+
+on: push
+
+jobs:
+    first_job:
+        runs-on: ubuntu-latest
+        steps:
+        - run: echo "This is the first action" 
+        - run: ls
+        - run: uptime
+
