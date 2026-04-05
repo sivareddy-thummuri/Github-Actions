@@ -1,12 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'Oracle OpenJDK'
-        // add maven tool name here only if you configured one in Jenkins Tools
-        // maven 'Maven-3.9'
-    }
-
     stages {
         stage('Checkout') {
             steps {
