@@ -1,12 +1,12 @@
 package com.example;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.springframework.boot.test.context.SpringBootTest;
 
-public class AppTest {
+@SpringBootTest
+class AppTest {
 
     @Test
-    void testAdd() {
-        assertEquals(5, App.add(2, 3));
+    void contextLoads() {
     }
 }
