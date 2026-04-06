@@ -1,3 +1,5 @@
+// this is the comment for the App.java file
+
 package com.example;
 
 import org.springframework.boot.SpringApplication;
