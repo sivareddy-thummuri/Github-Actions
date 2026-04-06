@@ -4,7 +4,7 @@ pipeline {
     environment {
         S3_BUCKET   = 'jenkins-s3-artifact-store'
         AWS_REGION  = 'us-east-1'
-        ACCOUNT_ID  = 'ACCOUNT_ID'
+        ACCOUNT_ID  = '235721456806'
         IMAGE_NAME  = 'java-ci-app'
         IMAGE_TAG   = "${BUILD_NUMBER}"
         ECR_REPO    = "${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${IMAGE_NAME}"
